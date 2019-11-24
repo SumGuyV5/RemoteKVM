@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Keyboard Input</title>
+    <link href="../static/main.css" rel="stylesheet">
+    <script type="text/javascript" src="../static/socket.io.js"></script>
+
+</head>
+<body>
+    <div class="center"><h1>Keyboard Input</h1></div>
+    <div class="screen" tabindex="1" oncontextmenu="return false;"></div>
+    <form name="screen2">
+        POSX: <input type="text" name="posx"><br>
+        POSY: <input type="text" name="posy"><br>
+    </form>
+
+    <script type="text/javascript" charset="utf-8">
+        let socket = io();
+        let screen = document.getElementsByClassName("screen")[0];
+
+        socket.on('connect', function() {
+            socket.emit('my event', {type: 'message', data: 'I\'m connected!'});
+        });
+
+        screen.addEventListener('keydown', function(event) {
+            socket.emit('my event', {type: 'keyboard_down', key: event.key})
+        });
+
+        screen.addEventListener('keydown', function(event) {
+            socket.emit('my event', {type: 'keyboard_up', key: event.key})
+        });
+
+        screen.addEventListener('mousemove', function(event) {
+            let posX = event.clientX - this.getBoundingClientRect().left;
+            let posY = event.clientY - this.getBoundingClientRect().top;
+
+            document.screen2.posx.value = posX;
+            document.screen2.posy.value = posY;
+
+            //let t = setTimeout(mouse_position,100);
+            socket.emit('my event', {type: 'mouse', posX: posX, posY: posY});
+        });
+
+        screen.addEventListener('mousedown', function(event) {
+            socket.emit('my event', {type: 'mouse_button_down', data: event.button})
+        });
+
+        screen.addEventListener('mouseup', function(event) {
+            socket.emit('my event', {type: 'mouse_button_up', data: event.button})
+        });
+    </script>
+</body>
+</html>

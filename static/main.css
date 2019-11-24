@@ -1,0 +1,137 @@
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+.visually_hidden span{
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+.container {
+    margin: 0 auto;
+    width: 100%;
+    height: 100%;
+    /*background-color: #323c66;*/
+    color: #e6ffff;
+    overflow: auto;
+    text-align: center;
+}
+
+#grad {
+    background-image: linear-gradient(#323c66, white);
+}
+
+.center {
+    height: fit-content;
+    width: fit-content;
+    margin: 0 auto;
+}
+
+.screen {
+    height: 900px;
+    width: 1600px;
+    margin: auto;
+    background-color: black;
+}
+
+.container h1 {
+    font-family: Arial, sans-serif;
+    font-size: 30px;
+    color: #DDCCEE;
+    margin-top: 80px;
+}
+
+.container form {
+    margin: 20px;
+}
+
+.container input {
+    width: 350px;
+    height: 15px;
+    font-size: 15px;
+    margin: 2px;
+    padding: 20px;
+    transition: all 0.2s ease-in-out;
+}
+
+.container button {
+    width: 70px;
+    height: 30px;
+    color: white;
+    background-color: steelblue;
+    margin: 3px;
+}
+
+.container p {
+    margin: 100px;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    grid-row-gap: 20px;
+    margin: auto;
+    width: 80%;
+    /*border: 10px solid rgba(0, 0, 0, 0.8);*/
+}
+
+.grid-item {
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    margin: auto;
+    height: 370px;
+    width: 300px;
+    color: black;
+}
+
+.boardgamebliss {
+    color: white;
+    background-color: #2F92BE;
+}
+
+.games401 {
+    color: white;
+    background-color: #95B874;
+}
+
+.meeplemart {
+    color: white;
+    background-color: #C7121D;
+}
+
+.legendswarehouse {
+    color: white;
+    background-color: #7C7C7C;
+}
+
+.woodforsheep {
+    color: white;
+    background-color: #B5E36D;
+}
+
+.lvlupgames {
+    color: #FFDB40;
+    background-color: black;
+}
+
+.store_name {
+    align-self: center;
+    font-size: 30px;
+    margin: 1%;
+}
+
+.store_name a {
+    text-decoration: none;
+}
+
+.image img{
+  max-height: 270px;
+  max-width: 270px;
+}
